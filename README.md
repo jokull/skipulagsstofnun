@@ -15,4 +15,4 @@ Used by [Planitor](https://www.planitor.io).
 You can construct a link to a page hosted by Skipulagsstofnun with the PDF
 scans for this local site plan.
 
-`http://skipulagsaaetlanir.skipulagsstofnun.is/skipulagvefur/display.aspx?numer={skipnr}``
+`http://skipulagsaaetlanir.skipulagsstofnun.is/skipulagvefur/display.aspx?numer={skipnr}`
