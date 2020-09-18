@@ -4,6 +4,20 @@ Library to lookup polygons, coordinates and metadata of approved local site plan
 
 Used by [Planitor](https://www.planitor.io).
 
+## Install
+
+```bash
+poetry add skipulagsstofnun
+```
+
+or
+
+```bash
+pip install skipulagsstofnun
+```
+
+## Use
+
 ```python
 >>> from skipulagsstofnun import plans
 >>> plan = plans.get_plan()
