@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "skipulagsstofnun"
-version = "0.1.1"
+version = "0.1.2"
 description = "Library to lookup polygons, coordinates and metadata of approved local site plans in Iceland"
 authors = ["Jökull Sólberg <jokull@solberg.is>"]
 license = "MIT"
@@ -24,7 +24,6 @@ fiona = "^1.8.17"
 [tool.poetry.dev-dependencies]
 requests = "^2.24.0"
 black = "^20.8b1"
-datasette = "^0.48"
 typer = "^0.3.2"
 
 [build-system]
