@@ -20,7 +20,6 @@ pip install skipulagsstofnun
 
 ```python
 >>> from skipulagsstofnun import plans
->>> plan = plans.get_plan()
 >>> shape, plan = plans.get_plan(64.1525571, -21.9508792)
 >>> plan
 {'id': 'skipulag_deiliskipulag.198969', 'type': 'Feature', 'skipnr': '8136', 'nrsveitarf': '0', 'sveitarfelag': 'Reykjavíkurborg', 'heiti': 'Deiliskipulag stgr. 1.116 og 1.115.3, Slippa- og Ellingsensreitur', 'skipstig': 'deiliskipulag', 'malsmed': 'nytt', 'dagsinnsett': None, 'dagsleidrett': datetime.date(2016, 4, 14), 'gagnaeigandi': 'Skipulagsstofnun', 'dagsheimild': None, 'heimild': None, 'nakvaemnix': '0', 'vinnslufer': None}
