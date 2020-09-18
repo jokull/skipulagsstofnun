@@ -1,8 +1,9 @@
+from typing import Any, Tuple, Optional, Mapping
 import datetime as dt
 from pathlib import Path
 
 import fiona
-from shapely.geometry import shape, Point
+from shapely.geometry import shape, Point, Polygon
 
 
 shapefile = Path(__file__).resolve().parent / "plans.shp"
@@ -31,10 +32,14 @@ FIELDNAME_MAP = dict(
 
 class DB:
 
-    _plans = {}
+    _plans = None
 
-    def __init__(self, path):
-        with fiona.open(path, "r") as fp:
+    def __init__(self, path: str):
+        self.path = path
+
+    def _load(self):
+        self._plans = {}
+        with fiona.open(self.path, "r") as fp:
             self.schema = fp.schema
             for f in fp:
                 properties = {}
@@ -52,11 +57,13 @@ class DB:
                 polygon = shape(f["geometry"])
                 self._plans[id_] = polygon, properties
 
-    def get_plan(self, x, y):
+    def get_plan(self, x: float, y: float) -> Optional[Tuple[Polygon, Mapping[str, Any]]]:
+        if self._plans is None:
+            self._load()
         point = Point(x, y)
         for polygon, properties in self._plans.values():
             if point.within(polygon):
-                return properties
+                return polygon, properties
 
 
 plans = DB(str(shapefile))

@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 build/
 project.egg-info/
+dist/
 
 # VSCode
 .vscode
