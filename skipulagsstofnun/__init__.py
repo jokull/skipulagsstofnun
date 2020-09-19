@@ -57,13 +57,14 @@ class DB:
                 polygon = shape(f["geometry"])
                 self._plans[id_] = polygon, properties
 
-    def get_plan(self, x: float, y: float) -> Optional[Tuple[Polygon, Mapping[str, Any]]]:
+    def get_plan(self, x: float, y: float) -> Tuple[Optional[Polygon], Optional[Mapping[str, Any]]]:
         if self._plans is None:
             self._load()
         point = Point(x, y)
         for polygon, properties in self._plans.values():
             if point.within(polygon):
                 return polygon, properties
+        return None, None
 
 
 plans = DB(str(shapefile))
