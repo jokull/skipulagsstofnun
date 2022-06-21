@@ -7,6 +7,7 @@ Used by [Planitor](https://www.planitor.io).
 ## Install
 
 ```bash
+brew install gdal  # or similar
 poetry add skipulagsstofnun
 ```
 
