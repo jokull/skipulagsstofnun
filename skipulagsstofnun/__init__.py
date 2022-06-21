@@ -44,6 +44,8 @@ class DB:
             for f in fp:
                 properties = {}
                 for key, value in f["properties"].items():
+                    if value is None:
+                        continue
                     if key in FIELDNAME_MAP:
                         key = FIELDNAME_MAP[key]
                     if key in ("dagsinnsett", "dagsleidrett", "dagsheimild"):
@@ -53,6 +55,8 @@ class DB:
                         except Exception as e:
                             value = None
                     properties[key] = value
+                if not properties.get("skipnr"):
+                    continue
                 id_ = int(properties["skipnr"])
                 polygon = shape(f["geometry"])
                 self._plans[id_] = polygon, properties
